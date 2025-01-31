@@ -4,9 +4,9 @@
 \name{rksfun-package}
 \alias{rksfun}
 \alias{rksfun-package}
-\title{rksfun: What the Package Does (One Line, Title Case)}
+\title{rksfun: rksfun - a collection of usefull (to me) code}
 \description{
-What the package does (one paragraph).
+rksfun - a collection of usefull (to me) code
 }
 \seealso{
 Useful links:

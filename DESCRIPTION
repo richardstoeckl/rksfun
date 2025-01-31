@@ -1,7 +1,7 @@
 Package: rksfun
-Title: What the Package Does (One Line, Title Case)
+Title: rksfun - a collection of usefull (to me) code
 Version: 0.0.0.9000
-Description: What the package does (one paragraph).
+Description: rksfun - a collection of usefull (to me) code
 License: Boost Software License 1.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

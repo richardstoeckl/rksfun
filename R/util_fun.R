@@ -2,6 +2,7 @@
 #'
 #' @description This function negates the %in% operator.
 #' I really don't know why this is not a built-in operator in R
+#' rksfun
 #' @param ... vector
 #' @param NA na
 #' @export
@@ -10,7 +11,7 @@
 
 #' ggsave with A4 size (portrait)
 #'
-#' @description This function saves the plot with A4 size in portrait mode
+#' @description This function saves the plot with A4 size in portrait mode. rksfun
 #' @param plot ggplot object
 #' @param filename character. The name of the file to save the plot to.
 #' @param ... Other arguments passed to ggsave()

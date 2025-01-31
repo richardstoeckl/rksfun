@@ -14,5 +14,5 @@ ggsave_portrait(filename, plot = last_plot(), ...)
 \item{...}{Other arguments passed to ggsave()}
 }
 \description{
-This function saves the plot with A4 size in portrait mode
+This function saves the plot with A4 size in portrait mode. rksfun
 }

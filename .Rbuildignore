@@ -2,3 +2,7 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^rksfun\dev.R$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

@@ -1,11 +1,15 @@
-#' @title Negate the %in% operator
+#' Negate the %in% operator
+#'
 #' @description This function negates the %in% operator.
 #' I really don't know why this is not a built-in operator in R
+#' @param ... vector
+#' @param NA na
 #' @export
 '%NOTIN%' <- Negate('%in%')
 
 
-#' @title ggsave with A4 size (portrait)
+#' ggsave with A4 size (portrait)
+#'
 #' @description This function saves the plot with A4 size in portrait mode
 #' @param plot ggplot object
 #' @param filename character. The name of the file to save the plot to.
@@ -16,7 +20,8 @@ ggsave_portrait <- function(filename,plot=last_plot(),...) {
     ggplot2::ggsave(filename = filename,plot = plot, units = "mm", width = 210, height = 297, ...)
 }
 
-#' @title ggsave with A4 size (landscape)
+#' ggsave with A4 size (landscape)
+#'
 #' @description This function saves the plot with A4 size in landscape mode
 #' @param plot ggplot object
 #' @param filename character. The name of the file to save the plot to.
@@ -29,9 +34,13 @@ ggsave_landscape <- function(filename,plot=last_plot(),...) {
 
 
 # read result file from my annotation pipeline
-#' @title Read the result file from my annotation pipeline
+
+#' Read the result file from my annotation pipeline
+#'
 #' @description This function reads the result file from my annotation pipeline
 #' @param file character. The name of the file to read
+#' @param threads integer. Number of threads to use
+#' @param ... Other arguments passed to read_tsv
 #' @importFrom readr read_tsv
 #' @export
 read_annotation <- name <- function(file,threads = 12,...) {

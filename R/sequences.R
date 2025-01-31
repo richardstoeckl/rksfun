@@ -1,5 +1,6 @@
 # Function to calculate pairwise percent identity
 #' Calculate pairwise percent identity between two sequences
+#'
 #' @param seq1 First sequence
 #' @param seq2 Second sequence
 #' @param substitutionMatrix Substitution matrix to use for alignment
@@ -25,6 +26,7 @@ calculate_pid <- function(seq1, seq2, substitutionMatrix = "BLOSUM62", gapOpenin
 
 # Calculate all-vs-all protein percent identities
 #' Calculate all-vs-all protein percent identities
+#'
 #' @param protlist List of protein sequences
 #' @return Dataframe with percent identities
 #' @export

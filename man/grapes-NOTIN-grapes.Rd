@@ -6,6 +6,11 @@
 \usage{
 ... \%NOTIN\% NA
 }
+\arguments{
+\item{...}{vector}
+
+\item{NA}{na}
+}
 \description{
 This function negates the \%in\% operator.
 I really don't know why this is not a built-in operator in R

@@ -1,11 +1,15 @@
 # Function to be able to detect multiple patterns in a string
 
-#' @title Helper function to detect a pattern in a string
+#' Helper function to detect a pattern in a string
+#'
+#' @noRd
+#' @keywords internal
 labels2keep <- function(pattern,text) {
     !stringr::str_detect(text, fixed(pattern))
 }
 
-#' @title Function to get a logical vector if a text contains one of multiple sting patterns
+#' Function to get a logical vector if a text contains one of multiple sting patterns
+#'
 #' @examples
 #' # define a vector of patterns
 #' patterns <- c("Merc", "Hornet")

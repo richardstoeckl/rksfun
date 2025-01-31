@@ -3,7 +3,6 @@
 #' Use names(rksfunPalettes) to return all possible palette names. Current choices are:
 #' \code{rktbns_post}, and \code{tf2}
 #' Use \code{\link{rksfun.pals}} to construct palettes.
-#'
 #' @export
 rksfunPalettes <- list(
     rktbns_post = list(c("#62292f","#9d4e47","#dc7660","#eb9d77","#fbc78d","#f6d796","#f9e8a3","#dce6a7","#c0e3ab","#9bdfb0","#86dcb5","#59caac","#2dbda4","#3aa794","#48877c","#546f6a","#545955","#554546"),c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)),
@@ -14,6 +13,7 @@ rksfunPalettes <- list(
 # Function for generating palettes
 
 #' rksfunPalettes for plotting
+#'
 #' @param name Name of Palette. Choices are:
 #' \code{rktbns_post}, and \code{tf2}
 #' @param n Number of desired colors. If number of requested colors is beyond the scope of the palette,

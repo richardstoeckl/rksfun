@@ -8,6 +8,10 @@ read_annotation(file, threads = 12, ...)
 }
 \arguments{
 \item{file}{character. The name of the file to read}
+
+\item{threads}{integer. Number of threads to use}
+
+\item{...}{Other arguments passed to read_tsv}
 }
 \description{
 This function reads the result file from my annotation pipeline

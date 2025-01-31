@@ -12,6 +12,7 @@ rksfun - a collection of usefull (to me) code
 Useful links:
 \itemize{
   \item \url{https://github.com/richardstoeckl/rksfun}
+  \item \url{https://richardstoeckl.github.io/rksfun/}
   \item Report bugs at \url{https://github.com/richardstoeckl/rksfun/issues}
 }
 

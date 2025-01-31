@@ -8,6 +8,14 @@
 \description{
 What the package does (one paragraph).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/richardstoeckl/rksfun}
+  \item Report bugs at \url{https://github.com/richardstoeckl/rksfun/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Richard Stöckl \email{richard.stoeckl@ur.de} (\href{https://orcid.org/0000-0002-0451-0652}{ORCID})
 

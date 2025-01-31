@@ -2,18 +2,22 @@
 % Please edit documentation in R/palettes.R
 \name{scale_fill_rksfun_c}
 \alias{scale_fill_rksfun_c}
-\title{rksfun continuous fill scale for ggplot2}
+\title{rksfunPalettes for plotting with ggplot2}
 \usage{
-scale_fill_rksfun_c(palette = "rktbns_post", direction = 1, ...)
+scale_fill_rksfun_c(name, direction = 1, ...)
 }
 \arguments{
-\item{palette}{character name of the palette}
+\item{name}{Name of Palette. Choices are:
+\code{rktbns_post}, and \code{tf2}}
 
-\item{direction}{integer 1 for normal order, -1 for reversed order}
+\item{direction}{Sets order of colors. Default palette is 1. If direction is -1, palette color order is reversed}
+
+\item{...}{Other arguments passed on to \code{\link[ggplot2]{scale_color_gradientn}}}
 }
 \value{
-ggplot2 scale function
+A function that returns a continuous color scale.
 }
 \description{
-Function to create a continuous ggplot2 fill scale function for the rksfun palettes
+Function for using \code{rksfunPalettes} colors schemes in \code{ggplot2}. Use \code{\link{scale_color_rksfun_d}} and \code{\link{scale_fill_rksfun_d}}
+for discrete scales and \code{\link{scale_color_rksfun_c}} and \code{\link{scale_fill_rksfun_c}} for continuous scales.
 }

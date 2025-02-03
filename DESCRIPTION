@@ -25,5 +25,5 @@ Imports:
     magrittr,
     purrr,
     pwalign,
-    readr
+    readr,
     stringr

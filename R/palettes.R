@@ -201,7 +201,7 @@ scale_color_rksfun_c <- function(name, direction = 1, ...) {
     }
 
     scale_color_gradientn(
-        colors = rksfun.pals(name = name, direction = direction, override.order = F),
+        colors = rksfun.pals(name = name, direction = direction, override.order = FALSE),
         ...
     )
 }
@@ -227,7 +227,7 @@ scale_fill_rksfun_c <- function(name, direction = 1, ...) {
     }
 
     scale_fill_gradientn(
-        colors = rksfun.pals(name = name, direction = direction, override.order = F),
+        colors = rksfun.pals(name = name, direction = direction, override.order = FALSE),
         ...
     )
 }

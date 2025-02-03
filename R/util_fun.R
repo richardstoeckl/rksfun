@@ -78,6 +78,6 @@ read_annotation <- name <- function(file, threads = 12, ...) {
             PGAP_description = col_character(),
             PGAP_EC = col_character(),
             PGAP_Evalue = col_double(),
-        ), num_threads = threads, quote = "", trim_ws = F, na = "*", ...
+        ), num_threads = threads, quote = "", trim_ws = FALSE, na = "*", ...
     )
 }

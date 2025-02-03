@@ -8,8 +8,6 @@
 }
 \arguments{
 \item{...}{vector}
-
-\item{NA}{na}
 }
 \description{
 This function negates the \%in\% operator.

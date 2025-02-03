@@ -24,7 +24,7 @@ patterns <- c("Merc", "Hornet")
 df <- datasets::mtcars
 df$car <- rownames(df)
 # filter the DF to keep only the rows that do not contain one of the patterns
-df_with_pattern <- df \%>\% dplyr::filter(hasOneOfMultiplePatterns(patterns,df$car))
+df_with_pattern <- df \%>\% dplyr::filter(hasOneOfMultiplePatterns(patterns, df$car))
 # filter the DF to keep only the rows that do not contain one of the patterns
-df_without_pattern <- df \%>\% dplyr::filter(!hasOneOfMultiplePatterns(patterns,df$car))
+df_without_pattern <- df \%>\% dplyr::filter(!hasOneOfMultiplePatterns(patterns, df$car))
 }

@@ -5,8 +5,8 @@
 #' Use \code{\link{rksfun.pals}} to construct palettes.
 #' @export
 rksfunPalettes <- list(
-    rktbns_post = list(c("#62292f","#9d4e47","#dc7660","#eb9d77","#fbc78d","#f6d796","#f9e8a3","#dce6a7","#c0e3ab","#9bdfb0","#86dcb5","#59caac","#2dbda4","#3aa794","#48877c","#546f6a","#545955","#554546"),c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)),
-    tf2 = list(c("#395c78","#5b7a8c","#768a88","#6b6a65","#34302d","#462d26","#6a4535","#913a1e","#bd3b3b","#9d312f","#f08149","#ef9849","#f5ad87","#f6b98a","#f5e7de","#c1a18a","#dabdab"),c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18))
+    rktbns_post = list(c("#62292f", "#9d4e47", "#dc7660", "#eb9d77", "#fbc78d", "#f6d796", "#f9e8a3", "#dce6a7", "#c0e3ab", "#9bdfb0", "#86dcb5", "#59caac", "#2dbda4", "#3aa794", "#48877c", "#546f6a", "#545955", "#554546"), c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18)),
+    tf2 = list(c("#395c78", "#5b7a8c", "#768a88", "#6b6a65", "#34302d", "#462d26", "#6a4535", "#913a1e", "#bd3b3b", "#9d312f", "#f08149", "#ef9849", "#f5ad87", "#f6b98a", "#f5e7de", "#c1a18a", "#dabdab"), c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))
 )
 
 
@@ -26,11 +26,11 @@ rksfunPalettes <- list(
 #' colors are selected in sequential order from the full palette instead. Default is FALSE.
 #' @return A vector of colors.
 #' @export
-rksfun.pals <- function(name, n, type = c("discrete", "continuous"), direction = c(1, -1), override.order=FALSE) {
+rksfun.pals <- function(name, n, type = c("discrete", "continuous"), direction = c(1, -1), override.order = FALSE) {
     `%NOTIN%` <- Negate(`%in%`)
     palette <- rksfunPalettes[[name]]
 
-    if (is.null(palette)|is.numeric(name)){
+    if (is.null(palette) | is.numeric(name)) {
         stop("Palette does not exist.")
     }
 
@@ -42,13 +42,16 @@ rksfun.pals <- function(name, n, type = c("discrete", "continuous"), direction =
         direction <- 1
     }
 
-    if (direction %NOTIN% c(1, -1)){
+    if (direction %NOTIN% c(1, -1)) {
         stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
     }
 
     if (missing(type)) {
-        if(n > length(palette[[1]])){type <- "continuous"}
-        else{type <- "discrete"}
+        if (n > length(palette[[1]])) {
+            type <- "continuous"
+        } else {
+            type <- "discrete"
+        }
     }
 
     type <- match.arg(type)
@@ -56,26 +59,27 @@ rksfun.pals <- function(name, n, type = c("discrete", "continuous"), direction =
         stop("Number of requested colors greater than what discrete palette can offer, \n use continuous instead.")
     }
 
-    continuous <-  if(direction==1){grDevices::colorRampPalette(palette[[1]])(n)
-    }else{
-        grDevices::colorRampPalette(rev(palette[[1]]))(n)}
+    continuous <- if (direction == 1) {
+        grDevices::colorRampPalette(palette[[1]])(n)
+    } else {
+        grDevices::colorRampPalette(rev(palette[[1]]))(n)
+    }
 
-    discrete <- if(direction==1 & override.order==FALSE){
-        palette[[1]][which(palette[[2]] %in% c(1:n)==TRUE)]
-    }else if(direction==-1 & override.order==FALSE){
-        rev(palette[[1]][which(palette[[2]] %in% c(1:n)==TRUE)])
-    } else if(direction==1 & override.order==TRUE){
+    discrete <- if (direction == 1 & override.order == FALSE) {
+        palette[[1]][which(palette[[2]] %in% c(1:n) == TRUE)]
+    } else if (direction == -1 & override.order == FALSE) {
+        rev(palette[[1]][which(palette[[2]] %in% c(1:n) == TRUE)])
+    } else if (direction == 1 & override.order == TRUE) {
         palette[[1]][1:n]
-    } else{
+    } else {
         rev(palette[[1]])[1:n]
     }
 
     out <- switch(type,
-                  continuous = continuous,
-                  discrete = discrete
+        continuous = continuous,
+        discrete = discrete
     )
     structure(out, class = "palette", name = name)
-
 }
 
 
@@ -97,34 +101,36 @@ rksfun.pals <- function(name, n, type = c("discrete", "continuous"), direction =
 #' @import ggplot2
 #' @return A function that returns a discrete color scale.
 #' @export
-scale_color_rksfun_d <- function(name, direction=1, override.order=FALSE, ...){
-    rksfun.pals.disc <- function(name, direction = c(1, -1), override.order=FALSE) {
-
+scale_color_rksfun_d <- function(name, direction = 1, override.order = FALSE, ...) {
+    rksfun.pals.disc <- function(name, direction = c(1, -1), override.order = FALSE) {
         `%NOTIN%` <- Negate(`%in%`)
         palette <- rksfunPalettes[[name]]
-        if (is.null(palette)|is.numeric(name)){
+        if (is.null(palette) | is.numeric(name)) {
             stop("Palette does not exist.")
         }
 
-        if (direction %NOTIN% c(1, -1)){
+        if (direction %NOTIN% c(1, -1)) {
             stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
         }
 
-        function(n) if(direction==1 & override.order==FALSE){
-            palette[[1]][which(palette[[2]] %in% c(1:n)==TRUE)]
-        }else if(direction==-1 & override.order==FALSE){
-            rev(palette[[1]][which(palette[[2]] %in% c(1:n)==TRUE)])
-        } else if(direction==1 & override.order==TRUE){
-            palette[[1]][1:n]
-        } else{
-            rev(palette[[1]])[1:n]
+        function(n) {
+            if (direction == 1 & override.order == FALSE) {
+                palette[[1]][which(palette[[2]] %in% c(1:n) == TRUE)]
+            } else if (direction == -1 & override.order == FALSE) {
+                rev(palette[[1]][which(palette[[2]] %in% c(1:n) == TRUE)])
+            } else if (direction == 1 & override.order == TRUE) {
+                palette[[1]][1:n]
+            } else {
+                rev(palette[[1]])[1:n]
+            }
         }
-
     }
 
-    discrete_scale(aesthetics = "colour", scale_name="rksfun_d",
-                   palette = rksfun.pals.disc(name=name, direction=direction, override.order=override.order),
-                   ...)
+    discrete_scale(
+        aesthetics = "colour", scale_name = "rksfun_d",
+        palette = rksfun.pals.disc(name = name, direction = direction, override.order = override.order),
+        ...
+    )
 }
 
 #' rksfunPalettes for plotting with ggplot2
@@ -142,33 +148,36 @@ scale_color_rksfun_d <- function(name, direction=1, override.order=FALSE, ...){
 #' @import ggplot2
 #' @return A function that returns a discrete color scale.
 #' @export
-scale_fill_rksfun_d <- function(name, direction=1, override.order=FALSE, ...){
-    rksfun.pals.disc <- function(name, direction = c(1, -1), override.order=FALSE) {
-
+scale_fill_rksfun_d <- function(name, direction = 1, override.order = FALSE, ...) {
+    rksfun.pals.disc <- function(name, direction = c(1, -1), override.order = FALSE) {
         `%NOTIN%` <- Negate(`%in%`)
         palette <- rksfunPalettes[[name]]
-        if (is.null(palette)|is.numeric(name)){
+        if (is.null(palette) | is.numeric(name)) {
             stop("Palette does not exist.")
         }
 
-        if (direction %NOTIN% c(1, -1)){
+        if (direction %NOTIN% c(1, -1)) {
             stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
         }
 
-        function(n) if(direction==1 & override.order==FALSE){
-            palette[[1]][which(palette[[2]] %in% c(1:n)==TRUE)]
-        }else if(direction==-1 & override.order==FALSE){
-            rev(palette[[1]][which(palette[[2]] %in% c(1:n)==TRUE)])
-        } else if(direction==1 & override.order==TRUE){
-            palette[[1]][1:n]
-        } else{
-            rev(palette[[1]])[1:n]
+        function(n) {
+            if (direction == 1 & override.order == FALSE) {
+                palette[[1]][which(palette[[2]] %in% c(1:n) == TRUE)]
+            } else if (direction == -1 & override.order == FALSE) {
+                rev(palette[[1]][which(palette[[2]] %in% c(1:n) == TRUE)])
+            } else if (direction == 1 & override.order == TRUE) {
+                palette[[1]][1:n]
+            } else {
+                rev(palette[[1]])[1:n]
+            }
         }
     }
 
-    discrete_scale(aesthetics = "fill", scale_name="rksfun_d",
-                   palette = rksfun.pals.disc(name=name, direction=direction, override.order=override.order),
-                   ...)
+    discrete_scale(
+        aesthetics = "fill", scale_name = "rksfun_d",
+        palette = rksfun.pals.disc(name = name, direction = direction, override.order = override.order),
+        ...
+    )
 }
 
 
@@ -184,16 +193,17 @@ scale_fill_rksfun_d <- function(name, direction=1, override.order=FALSE, ...){
 #' @import ggplot2
 #' @return A function that returns a continuous color scale.
 #' @export
-scale_color_rksfun_c <- function(name, direction=1, ...){
-
+scale_color_rksfun_c <- function(name, direction = 1, ...) {
     `%NOTIN%` <- Negate(`%in%`)
 
-    if (direction %NOTIN% c(1, -1)){
+    if (direction %NOTIN% c(1, -1)) {
         stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
     }
 
-    scale_color_gradientn(colors=rksfun.pals(name=name, direction=direction, override.order = F),
-                          ...)
+    scale_color_gradientn(
+        colors = rksfun.pals(name = name, direction = direction, override.order = F),
+        ...
+    )
 }
 
 
@@ -209,16 +219,17 @@ scale_color_rksfun_c <- function(name, direction=1, ...){
 #' @import ggplot2
 #' @return A function that returns a continuous color scale.
 #' @export
-scale_fill_rksfun_c <- function(name, direction=1, ...){
-
+scale_fill_rksfun_c <- function(name, direction = 1, ...) {
     `%NOTIN%` <- Negate(`%in%`)
 
-    if (direction %NOTIN% c(1, -1)){
+    if (direction %NOTIN% c(1, -1)) {
         stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
     }
 
-    scale_fill_gradientn(colors=rksfun.pals(name=name, direction=direction, override.order = F),
-                         ...)
+    scale_fill_gradientn(
+        colors = rksfun.pals(name = name, direction = direction, override.order = F),
+        ...
+    )
 }
 
 

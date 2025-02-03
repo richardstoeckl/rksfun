@@ -4,9 +4,8 @@
 #' I really don't know why this is not a built-in operator in R
 #' rksfun
 #' @param ... vector
-#' @param NA na
 #' @export
-'%NOTIN%' <- Negate('%in%')
+"%NOTIN%" <- Negate("%in%")
 
 
 #' ggsave with A4 size (portrait)
@@ -17,8 +16,8 @@
 #' @param ... Other arguments passed to ggsave()
 #' @importFrom ggplot2 ggsave
 #' @export
-ggsave_portrait <- function(filename,plot=last_plot(),...) {
-    ggplot2::ggsave(filename = filename,plot = plot, units = "mm", width = 210, height = 297, ...)
+ggsave_portrait <- function(filename, plot = last_plot(), ...) {
+    ggplot2::ggsave(filename = filename, plot = plot, units = "mm", width = 210, height = 297, ...)
 }
 
 #' ggsave with A4 size (landscape)
@@ -29,8 +28,8 @@ ggsave_portrait <- function(filename,plot=last_plot(),...) {
 #' @param ... Other arguments passed to ggsave()
 #' @importFrom ggplot2 ggsave
 #' @export
-ggsave_landscape <- function(filename,plot=last_plot(),...) {
-    ggplot2::ggsave(filename = filename,plot = plot, units = "mm", width = 297, height = 210, ...)
+ggsave_landscape <- function(filename, plot = last_plot(), ...) {
+    ggplot2::ggsave(filename = filename, plot = plot, units = "mm", width = 297, height = 210, ...)
 }
 
 
@@ -44,36 +43,38 @@ ggsave_landscape <- function(filename,plot=last_plot(),...) {
 #' @param ... Other arguments passed to read_tsv
 #' @importFrom readr read_tsv cols col_character col_double
 #' @export
-read_annotation <- name <- function(file,threads = 12,...) {
-    annotation <- readr::read_tsv(file,col_names = T,
-                             col_types = cols(
-                                 accession = col_character(),
-                                 binID = col_character(),
-                                 pContigID = col_character(),
-                                 sampleID = col_character(),
-                                 contigLength = col_double(),
-                                 gc = col_double(),
-                                 proteinID = col_character(),
-                                 proteinStart = col_double(),
-                                 proteinEnd = col_double(),
-                                 strand = col_character(),
-                                 Prokka = col_character(),
-                                 NCBI_CDD =col_character(),
-                                 NCBI_CDD_GeneID = col_character(),
-                                 NCBI_CDD_Description=col_character(),
-                                 NCBI_CDD_evalue=col_double(),
-                                 NCBI_COG =col_character(),
-                                 NCBI_COG_GeneID = col_character(),
-                                 NCBI_COG_Description=col_character(),
-                                 NCBI_COG_evalue=col_double(),
-                                 arcogs = col_character(),
-                                 arcogs_geneID = col_character(),
-                                 arcogs_Description = col_character(),
-                                 arcogs_Pathway = col_character(),
-                                 arcogs_evalue = col_double(),
-                                 PGAP = col_character(),
-                                 PGAP_description = col_character(),
-                                 PGAP_EC = col_character(),
-                                 PGAP_Evalue = col_double(),
-                             ), num_threads = threads, quote = "",trim_ws=F, na="*",...)
+read_annotation <- name <- function(file, threads = 12, ...) {
+    annotation <- readr::read_tsv(file,
+        col_names = T,
+        col_types = cols(
+            accession = col_character(),
+            binID = col_character(),
+            pContigID = col_character(),
+            sampleID = col_character(),
+            contigLength = col_double(),
+            gc = col_double(),
+            proteinID = col_character(),
+            proteinStart = col_double(),
+            proteinEnd = col_double(),
+            strand = col_character(),
+            Prokka = col_character(),
+            NCBI_CDD = col_character(),
+            NCBI_CDD_GeneID = col_character(),
+            NCBI_CDD_Description = col_character(),
+            NCBI_CDD_evalue = col_double(),
+            NCBI_COG = col_character(),
+            NCBI_COG_GeneID = col_character(),
+            NCBI_COG_Description = col_character(),
+            NCBI_COG_evalue = col_double(),
+            arcogs = col_character(),
+            arcogs_geneID = col_character(),
+            arcogs_Description = col_character(),
+            arcogs_Pathway = col_character(),
+            arcogs_evalue = col_double(),
+            PGAP = col_character(),
+            PGAP_description = col_character(),
+            PGAP_EC = col_character(),
+            PGAP_Evalue = col_double(),
+        ), num_threads = threads, quote = "", trim_ws = F, na = "*", ...
+    )
 }

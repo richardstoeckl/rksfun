@@ -10,6 +10,7 @@
 #' @importFrom grDevices colorRampPalette
 #' @importFrom purrr map
 #' @importFrom purrr pmap_lgl
+#' @importFrom pwalign pairwiseAlignment
 #' @importFrom stringr fixed
 #' @importFrom stringr str_detect
 ## usethis namespace: end

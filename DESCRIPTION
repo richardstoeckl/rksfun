@@ -24,4 +24,5 @@ Imports:
     grDevices,
     magrittr,
     purrr,
+    pwalign,
     stringr

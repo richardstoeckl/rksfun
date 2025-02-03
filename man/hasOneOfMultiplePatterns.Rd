@@ -21,9 +21,10 @@ Function to get a logical vector if a text contains one of multiple sting patter
 # define a vector of patterns
 patterns <- c("Merc", "Hornet")
 # create a DF
-df <- datasets::mtcars \%>\% tibble::rownames_to_column(var = "car")
+df <- datasets::mtcars
+df$car <- rownames(df)
 # filter the DF to keep only the rows that do not contain one of the patterns
-df_with_pattern <- df \%>\% dplyr::filter(rowHasPattern(patterns,df$car))
+df_with_pattern <- df \%>\% dplyr::filter(hasOneOfMultiplePatterns(patterns,df$car))
 # filter the DF to keep only the rows that do not contain one of the patterns
-df_without_pattern <- df \%>\% dplyr::filter(!rowHasPattern(patterns,df$car))
+df_without_pattern <- df \%>\% dplyr::filter(!hasOneOfMultiplePatterns(patterns,df$car))
 }

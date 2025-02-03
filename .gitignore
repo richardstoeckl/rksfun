@@ -6,4 +6,4 @@
 .quarto
 dev.R
 docs
-.Rproj
+*.Rproj

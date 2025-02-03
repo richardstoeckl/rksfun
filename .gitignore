@@ -8,3 +8,4 @@ dev.R
 docs
 *.Rproj
 dev
+inst/doc

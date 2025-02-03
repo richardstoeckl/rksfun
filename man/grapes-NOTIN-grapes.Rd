@@ -4,10 +4,12 @@
 \alias{\%NOTIN\%}
 \title{Negate the \%in\% operator}
 \usage{
-... \%NOTIN\% NA
+x \%NOTIN\% y
 }
 \arguments{
-\item{...}{vector}
+\item{x}{A vector of values to check if they exist in y}
+
+\item{y}{A vector of values to check if x values exist in}
 }
 \description{
 This function negates the \%in\% operator.

@@ -3,9 +3,12 @@
 #' @description This function negates the %in% operator.
 #' I really don't know why this is not a built-in operator in R
 #' rksfun
-#' @param ... vector
+#' @param x A vector of values to check if they exist in y
+#' @param y A vector of values to check if x values exist in
 #' @export
-"%NOTIN%" <- Negate("%in%")
+"%NOTIN%" <- function(x, y) {
+    !(base::"%in%"(x, y))
+}
 
 
 #' ggsave with A4 size (portrait)

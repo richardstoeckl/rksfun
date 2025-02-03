@@ -13,8 +13,13 @@ Authors@R:
     person("Richard", "Stöckl", , "richard.stoeckl@ur.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0451-0652"))
 Suggests: 
+    BiocStyle,
+    knitr,
+    RefManageR,
+    rmarkdown,
+    sessioninfo,
     spelling,
-    testthat (>= 3.0.0)
+    testthat
 Language: en-US
 Config/testthat/edition: 3
 URL: https://github.com/richardstoeckl/rksfun, https://richardstoeckl.github.io/rksfun/
@@ -28,3 +33,4 @@ Imports:
     pwalign,
     readr,
     stringr
+VignetteBuilder: knitr

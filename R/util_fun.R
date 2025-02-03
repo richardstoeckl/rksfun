@@ -42,10 +42,10 @@ ggsave_landscape <- function(filename,plot=last_plot(),...) {
 #' @param file character. The name of the file to read
 #' @param threads integer. Number of threads to use
 #' @param ... Other arguments passed to read_tsv
-#' @importFrom readr read_tsv
+#' @importFrom readr read_tsv cols col_character col_double
 #' @export
 read_annotation <- name <- function(file,threads = 12,...) {
-    annotation <- read_tsv(file,col_names = T,
+    annotation <- readr::read_tsv(file,col_names = T,
                              col_types = cols(
                                  accession = col_character(),
                                  binID = col_character(),
